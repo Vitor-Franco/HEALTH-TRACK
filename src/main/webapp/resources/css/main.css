@@ -1,0 +1,33 @@
+@charset "ISO-8859-1";
+
+.HOME__square_selection_item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	height: 150px;
+	width: 150px;
+	text-align: center;
+	
+	padding: 10px;
+	
+	border-radius: 10px;
+	border: 1px solid gray;
+	
+	transition: all 0.3s ease;	
+	cursor: pointer;
+}
+
+.HOME__square_selection_item:not(last-child) {
+	margin-right: 20px;
+}
+
+.HOME__square_selection_item p{
+	margin: 0px;
+}
+
+.HOME__square_selection_item:hover{
+	border-color: red;
+	color: red;
+	transform: scale(1.02);
+}
