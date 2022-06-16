@@ -9,24 +9,24 @@
 
 <body>
 	<%@ include file="menu.jsp"%>
-	
+
 	<c:if test="${empty user}"><% 
 		String redirectURL = "home.jsp";
 	    response.sendRedirect(redirectURL);
 	%></c:if>
-	
+
 	<div class="container">
 		<div class="row justify-content-center">
 			<h1 class="text-center mt-5 w-100">Criar ingestão de água</h1>
 			<p class="text-center mb-5 w-100">Aqui você pode registrar uma ingestão de água.</p>
-			
+
 			<c:if test="${not empty msg }">
 				<div class="alert alert-success">${msg}</div>
 			</c:if>
 			<c:if test="${not empty erro }">
 				<div class="alert alert-danger">${erro}</div>
 			</c:if>
-			
+
 			<div class="col-12 d-flex justify-content-center text-center">
 				<form class="form-inline my-2 my-lg-0" action="ingestao" method="POST">
 					<input type="hidden" name="acao" value="cadastrar" />
@@ -48,14 +48,14 @@
 							/>
 						</div>						
 					</div>
-					
+
 					<button class="btn btn-outline-success mt-2 my-sm-0 w-100" type="submit">Cadastrar</button>
-					
+
 				</form>
 			</div>
 		</div>
 	</div>
-	
+
 	<%@ include file="footer.jsp"%>
 </body>
-</html>
+</html> 

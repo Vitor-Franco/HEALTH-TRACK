@@ -6,16 +6,22 @@
 	align-items: center;
 	
 	height: 150px;
-	width: 150px;
+	width: 220px;
 	text-align: center;
 	
 	padding: 10px;
 	
 	border-radius: 10px;
 	border: 1px solid gray;
+	background-color: #38A169;
 	
 	transition: all 0.3s ease;	
 	cursor: pointer;
+}
+
+.HOME__square_selection_item a {
+	color: #fff;
+	font-size: 18px;
 }
 
 .HOME__square_selection_item:not(last-child) {
@@ -27,7 +33,6 @@
 }
 
 .HOME__square_selection_item:hover{
-	border-color: red;
-	color: red;
 	transform: scale(1.02);
+	background-color: #48BB78;
 }

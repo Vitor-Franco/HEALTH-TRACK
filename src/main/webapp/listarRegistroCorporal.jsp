@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Listar ingestões de água</title>
+<title>Listar Registros corporais</title>
 <%@ include file="header.jsp"%>
 </head>
 
@@ -42,23 +42,15 @@
 				<c:forEach items="${registros}" var="i">
 					<tr>
 						<td><fmt:formatDate value="${i.data}" pattern="dd/MM/yyyy" /></td>
-						<td>${i.peso}</td>				
-						<td>
-							<c:url value="registro" var="link">
-								<c:param name="acao" value="abrir-form-edicao" />
+						<td>${i.peso}</td>
+						<td><c:url value="registroCorporal" var="link">
+								<c:param name="acao" value="abrirEdit" />
 								<c:param name="codigo" value="${i.id}" />
-							</c:url> 
-							<a href="${link}" class="btn btn-primary btn-xs">Editar</a>
-							<button 
-								type="button" 
-								class="btn btn-danger btn-xs"
-								data-toggle="modal" 
-								data-target="#excluirModal"
-								onclick="getElementById('codigoExcluir').value = ${i.id}"
-							>
-								Excluir
-							</button>
-						</td>
+							</c:url> <a href="${link}" class="btn btn-primary btn-xs">Editar</a>
+							<button type="button" class="btn btn-danger btn-xs"
+								data-toggle="modal" data-target="#excluirModal"
+								onclick="getElementById('codigoExcluir').value = ${i.id}">
+								Excluir</button></td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -66,7 +58,7 @@
 	</div>
 
 	<%@ include file="footer.jsp"%>
-	
+
 	<!-- Modal -->
 	<div class="modal fade" id="excluirModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -81,7 +73,7 @@
 				</div>
 				<div class="modal-body">Deseja realmente excluir o registro?</div>
 				<div class="modal-footer">
-					<form action="ingestao" method="post">
+					<form action="registroCorporal" method="post">
 						<input type="hidden" name="acao" value="excluir"> <input
 							type="hidden" name="codigo" id="codigoExcluir">
 						<button type="button" class="btn btn-secondary"

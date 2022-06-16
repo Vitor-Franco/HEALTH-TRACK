@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Listar ingestões de água</title>
+<title>Listar refeições</title>
 <%@ include file="header.jsp"%>
 </head>
 
@@ -22,9 +22,9 @@
 
 	<div class="container">
 		<div class="row justify-content-center">
-			<h1 class="text-center mt-5 w-100">Ingestões de água</h1>
+			<h1 class="text-center mt-5 w-100">Refeição</h1>
 			<p class="text-center mb-5 w-100">Aqui você pode visualizar cada
-				ingestão de água.</p>
+				refeição.</p>
 
 			<c:if test="${not empty msg }">
 				<div class="alert alert-success">${msg}</div>
@@ -35,30 +35,25 @@
 
 			<table class="table table-striped">
 				<tr>
-					<th>Data</th>
-					<th>Quantidade de água</th>
+					<th>Data refeição</th>
+					<th>Descrição</th>
+					<th>Nome</th>					
 					<th></th>
 				</tr>
-				<c:forEach items="${ingestoes}" var="i">
+				<c:forEach items="${refeicoes}" var="r">
 					<tr>
-						<td><fmt:formatDate value="${i.data}" pattern="dd/MM/yyyy" /></td>
-						<td>${i.quantidadeAgua}</td>						
-						<td>
-							<c:url value="ingestao" var="link">
+						<td><fmt:formatDate value="${r.dtRefeicao}" pattern="dd/MM/yyyy"
+								type="both" /></td>
+						<td>${r.descricao}</td>
+						<td>${r.nomeRefeicao}</td>
+						<td><c:url value="refeicao" var="link">
 								<c:param name="acao" value="abrir-form-edicao" />
-								<c:param name="codigo" value="${i.id}" />
-							</c:url> 
-							<a href="${link}" class="btn btn-primary btn-xs">Editar</a>
-							<button 
-								type="button" 
-								class="btn btn-danger btn-xs"
-								data-toggle="modal" 
-								data-target="#excluirModal"
-								onclick="getElementById('codigoExcluir').value = ${i.id}"
-							>
-								Excluir
-							</button>
-						</td>
+								<c:param name="codigo" value="${r.id}" />
+							</c:url> <a href="${link}" class="btn btn-primary btn-xs">Editar</a>
+							<button type="button" class="btn btn-danger btn-xs"
+								data-toggle="modal" data-target="#excluirModal"
+								onclick="getElementById('codigoExcluir').value = ${r.id}">
+								Excluir</button></td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -79,9 +74,9 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<div class="modal-body">Deseja realmente excluir a ingestão?</div>
+				<div class="modal-body">Deseja realmente excluir a refeicão?</div>
 				<div class="modal-footer">
-					<form action="ingestao" method="post">
+					<form action="atividade" method="post">
 						<input type="hidden" name="acao" value="excluir"> <input
 							type="hidden" name="codigo" id="codigoExcluir">
 						<button type="button" class="btn btn-secondary"

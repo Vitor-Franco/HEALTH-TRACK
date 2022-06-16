@@ -27,7 +27,6 @@ public class AlimentoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
     private AlimentoDAO dao;
-    private UsuarioDAO userDao;
 
     @Override
     public void init() throws ServletException {

@@ -74,18 +74,13 @@ public class UserSessionServlet extends HttpServlet {
 
 			Usuario usuario = new Usuario(0, nome, dtNascimento, sexo, altura, idade, email, senha);
 
-			if (usuario != null) {
-				HttpSession session = request.getSession();
-				int usuarioID = usuario.getId();
-				
-				session.setAttribute("user", usuario);
-				session.setAttribute("userID", usuarioID);
-				
-				request.setAttribute("msg", "Usuário cadastrado!");
-				
-			} else {
-				request.setAttribute("erro", "Usuário e/ou senha inválidos");
-			}
+			HttpSession session = request.getSession();
+			int usuarioID = usuario.getId();
+			
+			session.setAttribute("user", usuario);
+			session.setAttribute("userID", usuarioID);
+			
+			request.setAttribute("msg", "Usuário cadastrado!");
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("erro", "Por favor, valide os dados" + e.getMessage());

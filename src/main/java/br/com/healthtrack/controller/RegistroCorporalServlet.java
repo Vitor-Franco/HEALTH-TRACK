@@ -45,13 +45,14 @@ public class RegistroCorporalServlet extends HttpServlet {
 				listar(request, response);
 				break;
 			case "abrirEdit":
-				abrirEdit(request, response); break;
+				abrirEdit(request, response); 
+				break;
 		}
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userAction = request.getParameter("action");
+		String userAction = request.getParameter("acao");
 		
 		switch(userAction) {
 			case "create":
@@ -76,9 +77,9 @@ public class RegistroCorporalServlet extends HttpServlet {
 			Calendar dtRegistro = Calendar.getInstance();
 			double peso = Double.parseDouble ( request.getParameter("peso") );
 						
-			RegistroCorporal ia = new RegistroCorporal(0, peso, dtRegistro);
-            ia.setUsuario(usuario);
-            dao.insert(ia);
+			RegistroCorporal rc = new RegistroCorporal(0, peso, dtRegistro);
+            rc.setUsuario(usuario);
+            dao.insert(rc);
 
             request.setAttribute("msg", "Registro Corporal cadastrado!");
         } catch (DBException db) {
@@ -93,8 +94,8 @@ public class RegistroCorporalServlet extends HttpServlet {
 	
 	private void abrirEdit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("codigo"));
-		RegistroCorporal ia = dao.getById(id);
-		request.setAttribute("RegistroCorporal", ia);
+		RegistroCorporal rc = dao.getById(id);
+		request.setAttribute("registro", rc);
 		request.getRequestDispatcher("edicaoRegistroCorporal.jsp").forward(request, response);
 	}
 
