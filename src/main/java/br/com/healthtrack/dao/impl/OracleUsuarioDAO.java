@@ -141,5 +141,47 @@ public class OracleUsuarioDAO implements UsuarioDAO {
 		
 		return user;
 	}
+	
+	@Override
+    public Usuario getById(int id) {
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Usuario user = null;
+
+        try {
+            connection = DBManager.getInstance().getConnection();
+            stmt = connection.prepareStatement("SELECT * FROM t_ht_usuario WHERE cd_usuario = ?");
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
+
+            if (rs.next()){
+                int idUsuario = rs.getInt("cd_usuario");
+                String nome = rs.getString("nome");
+                String email = rs.getString("email");
+                int idade = rs.getInt("idade");
+                double altura = rs.getDouble("altura");
+                char sexo = rs.getString("sexo").charAt(0);
+
+                java.sql.Date dataNascimento = rs.getDate("dt_nasc");
+                Calendar dtNasc = Calendar.getInstance();
+                dtNasc.setTimeInMillis(dataNascimento.getTime());
+
+                user = new Usuario(idUsuario, nome, dtNasc, sexo, altura, idade, email, "");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                stmt.close();
+                rs.close();
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        
+        return user;
+    }
 
 }

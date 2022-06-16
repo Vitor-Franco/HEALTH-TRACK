@@ -61,11 +61,14 @@
 						</div>
 						<div class="col-6 pr-0"> 
 							<input 
-								class="form-control mr-sm-2 w-100"
-								type="date" 
+								type="text" 
 								name="dtNascimento" 
-								placeholder="Data de Nascimento"
-							/>	
+								placeholder="dd/MM/yyyy" 
+								class="form-control mr-sm-2 w-100" 
+								value='
+								<fmt:formatDate  
+									pattern="dd/MM/yyyy"
+							/>'>
 						</div>
 					</div>
 					<div class="row m-0 w-100 my-2">

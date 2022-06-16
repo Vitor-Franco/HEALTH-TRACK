@@ -52,7 +52,9 @@ public class UserSessionServlet extends HttpServlet {
 
 		if (currentUser != null) {
 			HttpSession session = request.getSession();
+			int usuarioID = currentUser.getId();
 			session.setAttribute("user", currentUser);
+			session.setAttribute("userID", usuarioID);
 		} else {
 			request.setAttribute("erro", "Usuário e/ou senha inválidos");
 		}
@@ -69,20 +71,15 @@ public class UserSessionServlet extends HttpServlet {
 			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 			Calendar dtNascimento = Calendar.getInstance();
 			dtNascimento.setTime(format.parse(request.getParameter("dtNascimento")));
-			
-			System.out.println(nome);
-			System.out.println(altura);
-			System.out.println(sexo);
-			System.out.println(idade);
-			System.out.println(email);
-			System.out.println(senha);
-			System.out.println(dtNascimento);
 
 			Usuario usuario = new Usuario(0, nome, dtNascimento, sexo, altura, idade, email, senha);
 
 			if (usuario != null) {
 				HttpSession session = request.getSession();
+				int usuarioID = usuario.getId();
+				
 				session.setAttribute("user", usuario);
+				session.setAttribute("userID", usuarioID);
 				
 				request.setAttribute("msg", "Usuário cadastrado!");
 				
@@ -91,7 +88,7 @@ public class UserSessionServlet extends HttpServlet {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			request.setAttribute("erro", "Por favor, valide os dados");
+			request.setAttribute("erro", "Por favor, valide os dados" + e.getMessage());
 		}
 
 	}

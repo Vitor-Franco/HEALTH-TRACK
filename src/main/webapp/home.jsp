@@ -56,14 +56,18 @@
 				</div>
 			</div>
 			
-				<div class="row m-0 pt-4 mt-3">
+			<div class="row m-0 pt-4 mt-3">
 				<p class="h5 w-100 mb-4">Ingestão de Água</p>
 				
 				<div class="HOME__square_selection_item">
-					<p>Registrar nova ingestão</p>
+					<p>
+						<a href="criarIngestaoAgua.jsp">Registrar nova ingestão de água</a>
+					</p>
 				</div>
 				<div class="HOME__square_selection_item">
-					<p>Listar últimas ingestões</p>
+					<p>
+						<a href="ingestao?acao=listar">Listar ingestão de água</a>
+					</p>
 				</div>
 			</div>
 			
