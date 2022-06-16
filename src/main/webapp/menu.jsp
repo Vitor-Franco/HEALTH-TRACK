@@ -6,7 +6,7 @@
 		<c:if test="${not empty user}">
 			<span class="navbar-text"> 
 				${user.getNome()} 
-				<a href="user" class="btn btn-outline-danger ml-2 my-2 my-sm-0">Sair</a>
+				<a href="login" class="btn btn-outline-danger ml-2 my-2 my-sm-0">Sair</a>
 			</span>
 		</c:if>
 	</div>

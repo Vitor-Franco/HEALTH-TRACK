@@ -11,6 +11,4 @@ public interface UsuarioDAO {
 	public void insert(Usuario usuario) throws DBException;
 
 	public Usuario getUserByCredentials(Usuario u);
-	
-	public Usuario getById(int id);
 }

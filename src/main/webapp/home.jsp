@@ -49,29 +49,21 @@
 				<p class="h5 w-100 mb-4">Atividade Física</p>
 				
 				<div class="HOME__square_selection_item">
-					<p>
-						<a href="criarAtividadeFisica.jsp">Nova Atividade Física</a>						
-					</p>
+					<p>Nova Atividade Física</p>
 				</div>
 				<div class="HOME__square_selection_item">
-					<p>
-						<a href="atividade?acao=listar">Exibir últimas sessões de exercícios</a>						
-					</p>
+					<p>Exibir últimas sessões de exercícios</p>
 				</div>
 			</div>
 			
-			<div class="row m-0 pt-4 mt-3">
+				<div class="row m-0 pt-4 mt-3">
 				<p class="h5 w-100 mb-4">Ingestão de Água</p>
 				
 				<div class="HOME__square_selection_item">
-					<p>
-						<a href="criarIngestaoAgua.jsp">Registrar nova ingestão de água</a>
-					</p>
+					<p>Registrar nova ingestão</p>
 				</div>
 				<div class="HOME__square_selection_item">
-					<p>
-						<a href="ingestao?acao=listar">Listar ingestão de água</a>
-					</p>
+					<p>Listar últimas ingestões</p>
 				</div>
 			</div>
 			
